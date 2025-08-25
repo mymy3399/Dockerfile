@@ -1,0 +1,25 @@
+# Core Libraries for PDF to Excel Conversion
+pdfplumber==0.10.0      # PDF text extraction
+openpyxl==3.1.2         # Excel file creation  
+pandas==2.1.0           # Data manipulation
+PyMuPDF==1.23.14        # Alternative PDF library for better text extraction
+tabula-py==2.8.2        # Table extraction
+camelot-py[cv]==0.11.0  # Advanced table extraction
+
+# GUI and Progress Display
+ttkbootstrap==1.10.1    # Modern tkinter themes
+pillow==10.0.1          # Image processing for GUI
+
+# Text Processing and Thai Language Support
+python-bidi==0.4.2      # Bidirectional text support
+unicodedata2==15.1.0    # Enhanced Unicode handling
+
+# Utilities
+pathlib2==2.3.7         # Better path handling
+typing-extensions==4.8.0  # Type hints support
+
+# Development and Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.9.1
+flake8==6.1.0
