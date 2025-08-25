@@ -4,7 +4,12 @@ This repository contains a Dockerfile that builds a custom Caddy web server with
 - `github.com/caddy-dns/cloudflare` - DNS-01 ACME challenge support for Cloudflare DNS API
 - `github.com/greenpau/caddy-security` - Security plugin for Caddy
 
-Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
+**Always reference these instructions first** and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
+
+## Critical Requirements
+- **Internet Access Required**: The Docker build process downloads Go modules from github.com and requires unrestricted internet access
+- **Build May Fail in Restricted Environments**: Corporate firewalls, sandboxed systems, or environments without GitHub access will cause build failures
+- **Expected Build Time**: 2-5 minutes with good network connectivity
 
 ## Working Effectively
 
@@ -124,6 +129,33 @@ When testing Caddyfile configurations that use the included plugins:
 - **Cloudflare DNS plugin**: Requires `CLOUDFLARE_EMAIL` and `CLOUDFLARE_API_KEY` environment variables
 - **Security plugin**: Test authentication flows and security headers
 - Always test in non-production environment first
+
+Example Caddyfile using Cloudflare DNS:
+```
+example.com {
+  tls {
+    dns cloudflare {env.CLOUDFLARE_EMAIL} {env.CLOUDFLARE_API_KEY}
+  }
+  respond "Hello, World!"
+}
+```
+
+Example with security plugin:
+```
+example.com {
+  security {
+    authentication portal myportal {
+      crypto default token lifetime 3600
+    }
+  }
+  respond "Secured content"
+}
+```
+
+## Working with Caddyfiles
+- Mount Caddyfile: `docker run -v ./Caddyfile:/etc/caddy/Caddyfile custom-caddy`
+- Validate config: `docker run --rm -v ./Caddyfile:/etc/caddy/Caddyfile custom-caddy caddy validate --config /etc/caddy/Caddyfile`
+- Format Caddyfile: `docker run --rm -v ./Caddyfile:/etc/caddy/Caddyfile custom-caddy caddy fmt --overwrite --config /etc/caddy/Caddyfile`
 
 ## Troubleshooting
 - If containers fail to start: Check logs with `docker logs <container-name>`
