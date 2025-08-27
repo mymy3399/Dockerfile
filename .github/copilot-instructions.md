@@ -20,8 +20,10 @@ Always reference these instructions first and fallback to search or bash command
 
 - **Build failure troubleshooting**:
   - Error "tls: failed to verify certificate: x509: certificate signed by unknown authority" = network/proxy issues
-  - Error "Could not resolve host: github.com" = DNS/network restrictions
+  - Error "Could not resolve host: github.com" = DNS/network restrictions  
+  - Error "failed to solve: process "/bin/sh -c xcaddy build" did not complete successfully: exit code: 1" = typical network-related build failure
   - These are environment limitations, not code issues
+  - Build typically fails within 10-30 seconds when network issues occur
 
 ### Testing and Validation
 
@@ -39,13 +41,21 @@ Always reference these instructions first and fallback to search or bash command
   # Run the custom built image
   docker run --rm -p 8080:80 custom-caddy caddy file-server --browse --root /usr/share/caddy
   
-  # Verify custom plugins are available
+  # Verify custom plugins are available (should show cloudflare and security modules)
   docker run --rm custom-caddy caddy list-modules | grep -E "(cloudflare|security)"
+  ```
+
+- **Compare with base image modules**:
+  ```bash
+  # Base image modules (no cloudflare/security plugins)
+  docker run --rm caddy:latest caddy list-modules | grep cloudflare
+  # Should return empty (module not found)
   ```
 
 - **Manual validation scenarios**:
   - Always test HTTP server responds: `curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/`
   - Expected response: `200`
+  - If port 8080 is in use, try port 8081: `docker run --rm -p 8081:80 caddy:latest ...`
   - Test basic web server functionality by accessing http://localhost:8080 in browser
   - Verify the server starts without errors in the logs
 
