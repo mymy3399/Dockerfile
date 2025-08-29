@@ -1,0 +1,43 @@
+{
+  "name": "government-asset-management",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Government Asset Management System - Thai Government Asset Management Platform",
+  "keywords": ["asset-management", "government", "thai", "monorepo"],
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "type-check": "turbo run type-check",
+    "db:migrate": "turbo run db:migrate",
+    "db:generate": "turbo run db:generate",
+    "db:seed": "turbo run db:seed",
+    "docker:build": "docker compose -f infra/docker-compose.yml build",
+    "docker:up": "docker compose -f infra/docker-compose.yml up -d",
+    "docker:down": "docker compose -f infra/docker-compose.yml down",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.11.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "turbo": "^1.11.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "assets": "Assets",
+    "projects": "Projects",
+    "locations": "Locations",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Government Asset Management System Overview",
+      "totalAssets": "Total Assets",
+      "activeProjects": "Active Projects",
+      "locations": "Locations"
+    },
+    "assets": {
+      "title": "Asset Management",
+      "description": "All assets in the system",
+      "search": "Search assets...",
+      "addAsset": "Add Asset",
+      "assetCode": "Asset Code",
+      "assetName": "Asset Name",
+      "category": "Category",
+      "status": "Status",
+      "location": "Location",
+      "actions": "Actions"
+    },
+    "projects": {
+      "title": "Project Management",
+      "description": "All projects in the system",
+      "search": "Search projects...",
+      "addProject": "Add Project",
+      "projectCode": "Project Code",
+      "projectName": "Project Name",
+      "status": "Status",
+      "budget": "Budget",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    },
+    "locations": {
+      "title": "Location Management",
+      "description": "All locations in the system",
+      "search": "Search locations...",
+      "addLocation": "Add Location",
+      "locationCode": "Location Code",
+      "locationName": "Location Name",
+      "type": "Type",
+      "province": "Province",
+      "district": "District"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Government Asset Management System Login",
+      "email": "Email",
+      "password": "Password",
+      "loginButton": "Login",
+      "forgotPassword": "Forgot Password?"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "refresh": "Refresh"
+  },
+  "errors": {
+    "pageNotFound": "Page not found",
+    "serverError": "Server error occurred",
+    "networkError": "Network connection error",
+    "unauthorized": "Unauthorized access",
+    "validationError": "Validation error"
+  }
+}
