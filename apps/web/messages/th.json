@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "dashboard": "แดชบอร์ด",
+    "assets": "ทรัพย์สิน",
+    "projects": "โครงการ", 
+    "locations": "สถานที่",
+    "login": "เข้าสู่ระบบ",
+    "logout": "ออกจากระบบ"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "แดชบอร์ด",
+      "description": "ภาพรวมของระบบจัดการทรัพย์สินของรัฐ",
+      "totalAssets": "ทรัพย์สินทั้งหมด",
+      "activeProjects": "โครงการที่ดำเนินการ",
+      "locations": "สถานที่"
+    },
+    "assets": {
+      "title": "จัดการทรัพย์สิน",
+      "description": "รายการทรัพย์สินทั้งหมดในระบบ",
+      "search": "ค้นหาทรัพย์สิน...",
+      "addAsset": "เพิ่มทรัพย์สิน",
+      "assetCode": "รหัสทรัพย์สิน",
+      "assetName": "ชื่อทรัพย์สิน",
+      "category": "หมวดหมู่",
+      "status": "สถานะ",
+      "location": "สถานที่",
+      "actions": "การดำเนินการ"
+    },
+    "projects": {
+      "title": "จัดการโครงการ",
+      "description": "รายการโครงการทั้งหมดในระบบ",
+      "search": "ค้นหาโครงการ...",
+      "addProject": "เพิ่มโครงการ",
+      "projectCode": "รหัสโครงการ",
+      "projectName": "ชื่อโครงการ",
+      "status": "สถานะ",
+      "budget": "ง예산",
+      "startDate": "วันที่เริ่มต้น",
+      "endDate": "วันที่สิ้นสุด"
+    },
+    "locations": {
+      "title": "จัดการสถานที่",
+      "description": "รายการสถานที่ทั้งหมดในระบบ",
+      "search": "ค้นหาสถานที่...",
+      "addLocation": "เพิ่มสถานที่",
+      "locationCode": "รหัสสถานที่",
+      "locationName": "ชื่อสถานที่",
+      "type": "ประเภท",
+      "province": "จังหวัด",
+      "district": "อำเภอ"
+    },
+    "login": {
+      "title": "เข้าสู่ระบบ",
+      "description": "เข้าสู่ระบบจัดการทรัพย์สินของรัฐ",
+      "email": "อีเมล",
+      "password": "รหัสผ่าน",
+      "loginButton": "เข้าสู่ระบบ",
+      "forgotPassword": "ลืมรหัสผ่าน?"
+    }
+  },
+  "common": {
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "success": "สำเร็จ",
+    "cancel": "ยกเลิก",
+    "save": "บันทึก",
+    "edit": "แก้ไข",
+    "delete": "ลบ",
+    "view": "ดู",
+    "search": "ค้นหา",
+    "filter": "กรอง",
+    "export": "ส่งออก",
+    "import": "นำเข้า",
+    "refresh": "รีเฟรช"
+  },
+  "errors": {
+    "pageNotFound": "ไม่พบหน้าที่คุณกำลังค้นหา",
+    "serverError": "เกิดข้อผิดพลาดของเซิร์ฟเวอร์",
+    "networkError": "เกิดข้อผิดพลาดในการเชื่อมต่อ",
+    "unauthorized": "ไม่มีสิทธิ์ในการเข้าถึง",
+    "validationError": "ข้อมูลไม่ถูกต้อง"
+  }
+}
