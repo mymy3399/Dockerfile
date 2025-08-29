@@ -1,3 +1,11 @@
-const config = require("@government-asset/config/eslint");
-
-module.exports = config;
+module.exports = {
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  env: {
+    node: true,
+  },
+};
