@@ -1,0 +1,113 @@
+# Next.js Web Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: government-asset-management
+  labels:
+    app: web
+    component: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+        component: frontend
+    spec:
+      containers:
+      - name: web
+        image: ghcr.io/mymy3399/government-asset-web:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: NODE_ENV
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://api-service:4000" # Internal service communication
+        - name: HOSTNAME
+          value: "0.0.0.0"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+---
+# Web Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: government-asset-management
+  labels:
+    app: web
+    component: frontend
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: web
+  type: ClusterIP
+---
+# Ingress for external access
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: government-asset-management
+  labels:
+    app: government-asset-management
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # TLS and certificates (configure as needed)
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    # Additional annotations for on-premises deployment:
+    # kubernetes.io/ingress.class: "nginx"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  # TLS configuration (uncomment and configure for HTTPS)
+  # tls:
+  # - hosts:
+  #   - asset-management.yourdomain.com
+  #   secretName: asset-management-tls
+  rules:
+  - host: asset-management.local # Change to your domain
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: api-service
+            port:
+              number: 4000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-service
+            port:
+              number: 3000

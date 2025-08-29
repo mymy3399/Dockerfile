@@ -1,0 +1,37 @@
+# Maintainers and Code Owners
+
+# Global owners (will be notified on all changes)
+* @mymy3399
+
+# Frontend (Next.js app)
+/apps/web/ @mymy3399
+/packages/ui/ @mymy3399
+
+# Backend (NestJS API)
+/apps/api/ @mymy3399
+
+# Database and migrations
+/apps/api/prisma/ @mymy3399
+
+# Infrastructure and deployment
+/infra/ @mymy3399
+/.github/workflows/ @mymy3399
+/Dockerfile @mymy3399
+docker-compose*.yml @mymy3399
+
+# Configuration and tooling
+/packages/config/ @mymy3399
+/.env.example @mymy3399
+/turbo.json @mymy3399
+/pnpm-workspace.yaml @mymy3399
+
+# Documentation
+/README.md @mymy3399
+/SECURITY.md @mymy3399
+/CONTRIBUTING.md @mymy3399
+/docs/ @mymy3399
+
+# Package configuration
+package.json @mymy3399
+/apps/*/package.json @mymy3399
+/packages/*/package.json @mymy3399
