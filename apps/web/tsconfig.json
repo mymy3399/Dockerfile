@@ -1,5 +1,5 @@
 {
-  "extends": "@government-asset/config/tsconfig.json",
+  "extends": "../../packages/config/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
